@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<!--
+Author: Patrick Duensing
+Version: 10 September 2017
+This was project 1 for Software Engineering 1. This project contains a form that can be submitted as well as links, pictures, and tables.
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>Calculate</title>
+    <!-- This section contains all of the CSS used in the project -->
+    <style type="text/css">
+    </style>
+    <script type="text/javascript">
+    function submitFunction(){
+      var numberCheck = document.getElementsByName("numberCheck");
+      if (!numberCheck[0].checked && !numberCheck[1].checked && !numberCheck[2].checked && !numberCheck[3].checked){
+        window.alert("At least 1 checkbox must be checked!");
+        return false;
+      }
+      if(!document.getElementsByName("operationRadio")[0].checked && !document.getElementsByName("operationRadio")[1].checked && !document.getElementsByName("operationRadio")[2].checked){
+        window.alert("Either sum or product must be checked.");
+        return false;
+      }
+      return true;
+    }
+    </script>
+</head>
+<body>
+    <hr>
+    <!-- form -->
+    <form method="GET" onSubmit="return submitFunction()" action="Calculate">
+      <input type="checkbox" name="numberCheck" value="1" />&nbsp;1<br />
+      <input type="checkbox" name="numberCheck" value="2" />&nbsp;2<br />
+      <input type="checkbox" name="numberCheck" value="4" />&nbsp;4<br />
+      <input type="checkbox" name="numberCheck" value="8" />&nbsp;8<br />
+      <input type="checkbox" name="numberCheck" value="16" />&nbsp;16<br /><br />
+      <input type="radio" name="operationRadio" value="sum"/>&nbsp;Sum<br />
+      <input type="radio" name="operationRadio" value="product"/>&nbsp;Product<br />
+            <input type="radio" name="operationRadio" value="maximum"/>&nbsp;maximum<br />
+      <input type="submit" value="Submit" />
+    </form>
+</body>
+</html>
